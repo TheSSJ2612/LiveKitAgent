@@ -1,0 +1,43 @@
+[project]
+name = "aivisionbackend"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "livekit-agents>=0.12.11",
+    "livekit-plugins-cartesia>=0.4.7",
+    "livekit-plugins-deepgram>=0.6.17",
+    "livekit-plugins-google>=0.10.5",
+    "livekit-plugins-openai>=0.10.17",
+    "livekit-plugins-silero>=0.7.4",
+    "livekit-plugins-turn-detector>=0.4.0",
+    "python-dotenv~=1.0",
+    "torch>=2.6.0",
+    "torchaudio>=2.6.0",
+    "torchvision>=0.21.0"
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = [
+    # Windows: use CUDA version if extra 'cuda' is selected, otherwise CPU version.
+    { index = "pytorch-cu126", marker = "sys_platform == 'win32' and 'cuda' in extra" },
+]
+torchvision = [
+    # Windows: use CUDA version if extra 'cuda' is selected, otherwise CPU version.
+    { index = "pytorch-cu126", marker = "sys_platform == 'win32' and 'cuda' in extra" },
+]
+torchaudio = [
+    # Windows: use CUDA version if extra 'cuda' is selected, otherwise CPU version.
+    { index = "pytorch-cu126", marker = "sys_platform == 'win32' and 'cuda' in extra" },
+]

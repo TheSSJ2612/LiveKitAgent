@@ -1,0 +1,4 @@
+.env.local
+venv/
+.DS_Store
+glass-cedar-448715-c5-cca2eb54b3bb.json
